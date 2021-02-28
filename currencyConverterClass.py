@@ -10,7 +10,8 @@ import requests
 
 window = Tk()
 window.title('Currency Conversions')
-main_w = Frame(window, width=100, height=10)
+
+main_w = Frame(window)
 
 main_w.grid(column=0, row=0, sticky='nsew')
 main_w.columnconfigure(0, weight=1)
@@ -28,11 +29,12 @@ for line in symbols:
 
 base = StringVar()
 base.set('Base')
-base_options = OptionMenu(window, base, *currencies).grid(column=1, row=1, sticky='nw')
+base_options = OptionMenu(main_w, base, *currencies).grid(column=1, row=1, sticky='w')
+
 
 quote = StringVar()
 quote.set('Quote')
-quote_options = OptionMenu(window, quote, *currencies).grid(column=2, row=1, sticky='nw')
+quote_options = OptionMenu(main_w, quote, *currencies).grid(column=2, row=1, sticky='sw')
 
 base_out = StringVar()
 base_out.set('Base1')
@@ -43,9 +45,9 @@ rate = StringVar()
 rate.set('Exchange Rate')
 #rate.set('https://api.exchangeratesapi.io/history?start_at={}&end_at={}&symbols={}&base={}'.format(weekago,today,base.get(), quote.get(),base.get()))
 
-update_base = Label(window, textvariable=base_out).grid(column=3, row=1, sticky='nw')
+#update_base = Label(main_w, textvariable=base_out).grid(column=3, row=1, sticky='nw')
 #update_quote = Label(window, textvariable=quote_out).grid(column=4,row=1,sticky='nw')
-update_rate = Label(window, textvariable=rate).grid(column=3,row=1,sticky='nw')
+update_rate = Label(main_w, textvariable=rate).grid(column=3,row=1,sticky='s')
 
 
 
