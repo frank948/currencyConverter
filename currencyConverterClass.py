@@ -16,8 +16,7 @@ main_w.rowconfigure(0, weight=1)
 
 today = DT.date.today()
 weekago = today - DT.timedelta(days=7)
-location = os.getcwd()
-print(location)
+
 
 currencies = []
 
